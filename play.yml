@@ -46,13 +46,6 @@
     #notify: Start docker on boot
     tags:
       - docker
-  - name: Add remote user to "docker" group
-    user:
-      name: "remote user"
-      group: "docker"
-      append: yes
-    tags:
-      - docker
   - name: Install docker-compose
     get_url: 
       url : https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-Linux-x86_64
