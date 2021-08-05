@@ -16,6 +16,7 @@ pipeline {
                 echo " ============== start building image =================="
                 dir ('.') {
                 	sh 'ansible-playbook play.yml'
+                    sh 'ls -l'
                 }
             }
         }
