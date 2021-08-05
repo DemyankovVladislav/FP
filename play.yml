@@ -58,10 +58,17 @@
       url : https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-Linux-x86_64
       dest: /usr/local/bin/docker-compose
       mode: 'u+x,g+x'
-  - name: Copy file with owner and permissions
+  - name: Copy Dockerfile
     copy:
       src: ./Dockerfile
       dest: /tmp/Dockerfile
+      owner: root
+      group: root
+      mode: '0644'
+- name: Copy index.html
+    copy:
+      src: ./index.html
+      dest: /home/index.html
       owner: root
       group: root
       mode: '0644'
