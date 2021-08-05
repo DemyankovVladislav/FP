@@ -65,7 +65,7 @@
       owner: root
       group: root
       mode: '0644'
-- name: Copy index.html
+  - name: Copy index.html
     copy:
       src: ./index.html
       dest: /home/index.html
