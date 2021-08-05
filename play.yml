@@ -46,10 +46,9 @@
     #notify: Start docker on boot
     tags:
       - docker
-  - name: Add remote "sadmin" user to "docker" group
+  - name: Add remote user to "docker" group
     user:
-      remote_user: sadmin
-      name: "sadmin"
+      name: "remote user"
       group: "docker"
       append: yes
     tags:
