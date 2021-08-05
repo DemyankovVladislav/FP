@@ -72,3 +72,5 @@
       owner: root
       group: root
       mode: '0644'
+  - name: zapusk docker     
+    command: "docker build -t devopser/testcicd:latest /home"
