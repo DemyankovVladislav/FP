@@ -15,7 +15,7 @@ pipeline {
             steps {
                 echo " ============== start building image =================="
                 dir ('.') {
-                	sh 'ansible --version'
+                	sh 'sudo ansible-playbook play.yml'
                 }
             }
         }
