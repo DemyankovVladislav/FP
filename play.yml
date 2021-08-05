@@ -61,7 +61,7 @@
   - name: Copy Dockerfile
     copy:
       src: ./Dockerfile
-      dest: /tmp/Dockerfile
+      dest: /home/Dockerfile
       owner: root
       group: root
       mode: '0644'
