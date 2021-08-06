@@ -65,7 +65,8 @@
       owner: root
       group: root
       mode: '0644'
-  - name: zapusk docker     
+  - name: zapusk docker
+    command: "docker rmi devopser/testcicd:latest"
     command: "docker build -t devopser/testcicd:latest /home"
     command: "docker stop test"
     command: "docker rm test"
