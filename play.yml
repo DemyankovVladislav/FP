@@ -67,6 +67,6 @@
       mode: '0644'
   - name: zapusk docker     
     command: "docker build -t devopser/testcicd:latest /home"
-    command: "docker stop $(docker ps -a -q)"
-    command: "docker rm $(docker ps -a -q)"
+    command: "docker stop test"
+    command: "docker rm test"
     command: "docker run --name=test -p 1234:80 -d devopser/testcicd:latest"
