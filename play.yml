@@ -65,8 +65,6 @@
       owner: root
       group: root
       mode: '0644'
-  - name: build docker
-    shell: "docker build -t devopser/testcicd:latest /home/"
   - name: Get info on docker host and list images
     docker_host_info:
      containers: yes
@@ -81,5 +79,7 @@
     shell: "docker rmi $(docker images -a -q)"
     ignore_errors: yes
     when: result.host_info.Containers != 0
+  - name: build docker
+    shell: "docker build -t devopser/testcicd:latest /home/"
   - name: run
     shell: "docker run --name=test -p 1234:80 -d devopser/testcicd:latest"
