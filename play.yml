@@ -1,4 +1,4 @@
-- hosts: All
+- hosts: Slave
   become: yes
   gather_facts: false
   tasks:
