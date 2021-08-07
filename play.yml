@@ -66,11 +66,10 @@
       group: root
       mode: '0644'
   - name: build docker
-    command: "docker build -t devopser/testcicd:latest /home/"
-
-#  - name: stop
-#    command: "docker stop $(docker ps)"
-#  - name: rm
-#    command: "docker rm $(docker ps -a -q)"
+    shell: "docker build -t devopser/testcicd:latest /home/"
+  - name: stop
+    shell: "docker stop $(docker ps)"
+  - name: rm
+    shell: "docker rm $(docker ps -a -q)"
   - name: run
-    command: "docker run --name=test -p 1234:80 -d devopser/testcicd:latest"
+    shell: "docker run --name=test -p 1234:80 -d devopser/testcicd:latest"
