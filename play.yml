@@ -68,7 +68,7 @@
   - name: build docker
     shell: "docker build -t devopser/testcicd:latest /home/"
   - name: stop
-    shell: "docker stop $(docker ps)"
+    shell: "docker stop $(docker ps -a -q)"
   - name: rm
     shell: "docker rm $(docker ps -a -q)"
   - name: run
