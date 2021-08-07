@@ -73,6 +73,8 @@
     register: result
   - name: Stop all containers
     shell: "docker container stop $(docker container ls -aq)"
+    when: result.host_info.Containers != 0
+  - name: Remove all containers
     shell: "docker container rm $(docker container ls -aq)"
     when: result.host_info.Containers != 0
   - name: run
