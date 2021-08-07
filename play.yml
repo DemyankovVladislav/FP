@@ -67,9 +67,13 @@
       mode: '0644'
   - name: build docker
     shell: "docker build -t devopser/testcicd:latest /home/"
-  - name: stop
-    shell: "docker stop $(docker ps -a -q)"
-  - name: rm
-    shell: "docker rm $(docker ps -a -q)"
+  - name: Get info on docker host and list images
+    docker_host_info:
+     containers: yes
+    register: result
+  - name: Stop all containers
+    shell: "docker container stop $(docker container ls -aq)"
+    shell: "docker container rm $(docker container ls -aq)"
+    when: result.host_info.Containers != 0
   - name: run
     shell: "docker run --name=test -p 1234:80 -d devopser/testcicd:latest"
