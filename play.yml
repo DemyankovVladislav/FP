@@ -66,8 +66,11 @@
       group: root
       mode: '0644'
   - name: zapusk docker
-    command: "docker rmi devopser/testcicd:latest"
-    command: "docker build -t devopser/testcicd:latest /home"
-    command: "docker stop test"
-    command: "docker rm test"
+    command: "docker build -t devopser/testcicd:latest /home/"
+
+  - name: stop
+    command: "docker stop $(docker ps)"
+  - name: rm
+    command: "docker rm $(docker ps -a -q)"
+  - name: run
     command: "docker run --name=test -p 1234:80 -d devopser/testcicd:latest"
