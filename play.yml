@@ -77,8 +77,8 @@
   - name: Remove all containers
     shell: "docker container rm $(docker container ls -aq)"
     when: result.host_info.Containers != 0
-  - name: Remove all containers
-    shell: "docker container rmi $(docker container ls -aq)"
+  - name: Remove all images
+    shell: "docker rmi $(docker images -a -q)"
     when: result.host_info.Containers != 0
   - name: run
     shell: "docker run --name=test -p 1234:80 -d devopser/testcicd:latest"
